@@ -119,7 +119,6 @@ class MainScene extends Component {
         result = formatAmount(result, settings);
         percent = parseInt(percent, 0);
         NoOfPeople = NoOfPeople + "";
-        console.log(this);
         return (
             <View style={{ backgroundColor: '#f3f3f3', flex: 1 }}>
                 <NavigationBar

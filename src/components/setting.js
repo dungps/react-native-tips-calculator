@@ -141,7 +141,7 @@ class SettingScene extends Component {
                         </Row>
                         <Row containerStyle={styles.rowStyle}>
                             <Col size={40} containerStyle={styles.colStyle}>
-                                <Text style={styles.fontStyle}>Position</Text>
+                                <Text style={styles.fontStyle}>Currency</Text>
                             </Col>
                             <Col size={60} containerStyle={styles.colStyle}>
                                 <Picker
