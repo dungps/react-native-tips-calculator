@@ -1,4 +1,4 @@
-# Pre-work - *Tip Calculator*
+# *Tip Calculator*
 
 **Tip Calculator** is a tip calculator application for React Native.
 
@@ -44,4 +44,4 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/Kd87g2K.gif' title='Video Walkthrough Tip Calculator React native' width='' alt='Video Walkthrough Tip Calculator React native' />
+<img src='http://i.imgur.com/TcS9Q.gif' title='Video Walkthrough Tip Calculator React native' width='' alt='Video Walkthrough Tip Calculator React native' />
