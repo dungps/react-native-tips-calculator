@@ -1,10 +1,10 @@
-# Pre-work - *Tip Calculator*
+# *Tip Calculator*
 
 **Tip Calculator** is a tip calculator application for React Native.
 
 Submitted by: **Pham Sy Dungz**
 
-Time spent: **5** hours spent in total
+Time spent: **10** hours spent in total
 
 **Note** we do not require build this app for all Mobile OS, just based on what is fit for you.
 
@@ -44,6 +44,4 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/XPct148.gif' title='Video Walkthrough Tip Calculator React native' width='' alt='Video Walkthrough Tip Calculator React native' />
-
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+<img src='http://i.imgur.com/vIaIwQQ.gif' title='Video Walkthrough Tip Calculator React native' width='' alt='Video Walkthrough Tip Calculator React native' />
