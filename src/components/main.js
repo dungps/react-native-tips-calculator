@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, ScrollView } from 'react-native';
+import { View, TextInput, ScrollView, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import NavigationBar from 'react-native-navbar';
 import { Icon, Slider, Card, Grid, Row, Col, ButtonGroup, Text, Divider } from 'react-native-elements';
@@ -113,8 +113,16 @@ class MainScene extends Component {
         this.props.noOfPeopleChanged(no);
     }
 
+    onSettingPress() {
+        this.props.navigator.push({ id: 'setting' });
+        Keyboard.dismiss();
+    }
+
     render() {
         let { percent, amount, NoOfPeople, amountPerPeople, result, settings } = this.props;
+        const percentage = settings.percentage.map(item => {
+            return item + '%';
+        })
         amountPerPeople = formatAmount(amountPerPeople, settings);
         result = formatAmount(result, settings);
         percent = parseInt(percent, 0);
@@ -133,7 +141,7 @@ class MainScene extends Component {
                     rightButton={{
                         tintColor: 'white',
                         title: 'Settings',
-                        handler: () => this.props.navigator.push({ id: 'setting' })
+                        handler: this.onSettingPress.bind(this)
                     }}
                 />
 
@@ -173,16 +181,16 @@ class MainScene extends Component {
                                     selectedIndex={percent || 0}
                                     selectedBackgroundColor="#546a79"
                                     selectedTextStyle={{ color: 'white' }}
-                                    buttons={['10%', '15%', '50%']}
+                                    buttons={percentage}
                                 />
                             </Col>
                         </Row>
                         <Row containerStyle={[styles.rowStyle]}>
-                            <Col size={60} containerStyle={styles.colStyle}>
+                            <Col size={30} containerStyle={styles.colStyle}>
                                 <Text h3 style={{ color: '#546a79' }}>Tip</Text>
                                 <Text style={{ color: '#546a79' }}>PER PERSON</Text>
                             </Col>
-                            <Col size={40} containerStyle={styles.colStyle}>
+                            <Col size={70} containerStyle={styles.colStyle}>
                                 <Text h3 style={{ textAlign: 'right', color: '#546a79', fontWeight: 'normal' }}>{amountPerPeople}</Text>
                             </Col>
                         </Row>
@@ -190,10 +198,10 @@ class MainScene extends Component {
                         <Divider style={{ backgroundColor: '#ddd' }} />
 
                         <Row containerStyle={styles.rowStyle}>
-                            <Col size={60} containerStyle={styles.colStyle}>
+                            <Col size={30} containerStyle={styles.colStyle}>
                                 <Text h3 style={{ color: '#546a79' }}>Total</Text>
                             </Col>
-                            <Col size={40} containerStyle={styles.colStyle}>
+                            <Col size={70} containerStyle={styles.colStyle}>
                                 <Text h3 style={{ textAlign: 'right', color: '#546a79' }}>{result}</Text>
                             </Col>
                         </Row>
@@ -209,29 +217,18 @@ const mapStateToProps = state => {
     const settings = state.settings;
 
     let result = 0;
-    let percentAmount = 1 / 10;
+    let percentAmount = parseInt(settings.percentage[percent]) / 100;
     let amountPerPeople = 0;
 
-    percent = parseInt(percent, 0);
+    console.log(percentAmount);
 
-    switch (percent) {
-        case 0:
-        default:
-            percentAmount = 1 / 10;
-            break;
-        case 1:
-            percentAmount = 3 / 20;
-            break;
-        case 2:
-            percentAmount = 1 / 2;
-            break;
-    }
+    percent = parseInt(percent, 0);
 
     if (parseInt(amount, 0) > 0) {
         tipAmount = parseInt(amount, 0) * percentAmount;
         result = parseInt(amount, 0) + tipAmount;
         if (NoOfPeople) {
-            amountPerPeople = parseInt(result, 0) / parseInt(NoOfPeople, 0);
+            amountPerPeople = result / parseInt(NoOfPeople, 0);
         } else {
             amountPerPeople = result;
         }

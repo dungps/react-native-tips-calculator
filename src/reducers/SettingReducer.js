@@ -7,7 +7,8 @@ import {
 const INITIAL_STATE = {
     transition: 'PushFromRight',
     position: 'before',
-    currency: 'USD'
+    currency: 'USD',
+    percentage: ['12', '15', '50']
 };
 
 export default (state = INITIAL_STATE, action) => {
