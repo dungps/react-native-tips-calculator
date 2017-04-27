@@ -4,7 +4,7 @@
 
 Submitted by: **Pham Sy Dungz**
 
-Time spent: **5** hours spent in total
+Time spent: **10** hours spent in total
 
 **Note** we do not require build this app for all Mobile OS, just based on what is fit for you.
 
